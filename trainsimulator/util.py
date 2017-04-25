@@ -3,17 +3,6 @@ from datetime import datetime, timedelta
 from trainsimulator.exception import InvalidTimeFormat
 
 
-def rearrange_dict(input_dict):
-    rearranged_data_structure = []
-    for key, value in input_dict.items():
-        if not isinstance(value, (list, set, tuple)):
-            rearranged_data_structure.append((key, value))
-            continue
-        rearranged_data_structure.extend([(key, i) for i in value])
-
-    return rearranged_data_structure
-
-
 def convert_to_datetime(time_sequence):
     sanitized_time_sequence = []
     for time_stamp in time_sequence:
@@ -61,33 +50,6 @@ def time_sequence_decorator(func):
 @time_sequence_decorator
 def sort_time(time_sequence):
     return sorted(time_sequence)
-
-
-@time_sequence_decorator
-def earliest_time(time_sequence):
-    sorted_time_sequence = sorted(time_sequence)
-    return sorted_time_sequence[0].strftime('%H:%M')
-
-
-@time_sequence_decorator
-def time_span(time_sequence):
-    accumulated_time = timedelta(hours=0, minutes=0)
-    for index, time in enumerate(time_sequence[:-1]):
-        next_time_in_sequence = time_sequence[index + 1]
-        time_difference = next_time_in_sequence - time
-        if time_difference < timedelta(minutes=0):
-            time_difference = time_difference + timedelta(hours=24)
-        accumulated_time = accumulated_time + time_difference
-
-    if accumulated_time.days > 0:
-        hour_, minutes, _ = str(accumulated_time).split(',')[1].strip().split(':')
-        new_hours = int(hour_) + 24 * accumulated_time.days
-
-        return ':'.join([str(new_hours), str(int(minutes))])
-
-    hour_, minutes, _ = str(accumulated_time).split(':')
-
-    return ':'.join([str(int(hour_)), str(int(minutes))])
 
 
 def verify_time_format(time_str):

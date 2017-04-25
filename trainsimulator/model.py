@@ -74,10 +74,6 @@ class Journey(object):
         arrival_time = (departure_time_stamp + duration_time_stamp).strftime('%H:%M')
         return datetime.datetime.strptime(arrival_time, '%H:%M')
 
-    def all_arrival_time(self):
-        arrival_time_lists = [self.arrival_time(departure_time) for departure_time in self.timetable]
-        return arrival_time_lists
-
     def _extract_departure_time(self):
         return self.timetable['departure_time']
 
@@ -132,6 +128,9 @@ class TrainNetwork(object):
 
     def build_network_from_nodes(self, nodes):
         try:
+            if not nodes:
+                raise ValueError
+
             self.all_station = set()
             for node in nodes:
                 start_station, end_station, time_table = node
@@ -141,7 +140,7 @@ class TrainNetwork(object):
                 self.journey[start_station].append(journey)
                 self.all_station.update({start_station, end_station})
         except (ValueError, InvalidTimeTable):
-            print('Invalid node: {}, quit'.format(node))
+            print('Invalid nodes, quit')
             raise InvalidNetwork
 
     def build_network_from_journey(self, journeys):
@@ -219,33 +218,6 @@ class TrainNetwork(object):
         for journey in self.journey[start_station]:
             if journey.end_station == end_station:
                 return journey.departure_arrival_time_table()
-
-    def available_journey(self, departure_time, start_stop, next_departure_stop):
-        """
-        This method is to generate all the combination between two stations
-        :param start_stop: 
-        :param next_departure_stop: 
-        :return: 
-        """
-        try:
-            trip_time_table = {}
-            arrival_time = None
-
-            time_table = self._departure_arrival_time_table(start_stop, next_departure_stop)
-            for departure_time_, arrival_time_ in time_table:
-                if departure_time_ == departure_time:
-                    arrival_time = arrival_time_
-                    break
-
-                next_stop_departure_time = self.train_available(arrival_time, next_departure_stop)
-                if next_stop_departure_time:
-                    trip_time_table[departure_time] = next_stop_departure_time
-                else:
-                    raise NoTimetableAvailable
-
-            return trip_time_table
-        except (TypeError, NoTimetableAvailable):
-            raise NoTimetableAvailable
 
     def _time_table_from_route(self, route):
         """
