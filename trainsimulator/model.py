@@ -21,7 +21,10 @@ def time_span_decorator(func):
 
 class Journey(object):
     """
-    self._timetable is a dictionary in the format of departure_time: [duration]
+    This class defines the connection between two nodes in the network as Journey, and stores the timetable information
+    such as departure time and duration.
+    
+    Note: self._timetable is a dictionary in the format of departure_time: [duration]
     """
 
     def __init__(self, start_station, end_station):
@@ -41,13 +44,6 @@ class Journey(object):
     @property
     def duration(self):
         return self.timetable['duration']
-
-    def update_timetable(self, departure_time, duration):
-
-        if departure_time:
-            self._timetable['departure_time'] = departure_time
-        if duration:
-            self._timetable[duration] = duration
 
     @property
     def start_station(self):
@@ -111,7 +107,9 @@ class Journey(object):
 class TrainNetwork(object):
     def __init__(self):
         """
-        self.journey = {'start_station': journey_instance}
+        This class defines train network, and has the methods to find all the paths, time table, shortest journey
+        from one station to another, 
+        self.journey is the list of dictionary with format {'start_station': [journey_instances]}
         """
         self.journey = defaultdict(list)
         self.all_station = set()
@@ -127,6 +125,12 @@ class TrainNetwork(object):
         return journey_instance[0].duration if journey_instance else None
 
     def build_network_from_nodes(self, nodes):
+        """
+        This method is to build network from nodes with format (start_station, end_station, time_table)
+        
+        :param nodes: list of tuples
+        :return: 
+        """
         try:
             if not nodes:
                 raise ValueError
@@ -144,6 +148,11 @@ class TrainNetwork(object):
             raise InvalidNetwork
 
     def build_network_from_journey(self, journeys):
+        """
+        This method is to build network from a list of Journey instance
+        :param journeys: list of Journey instances
+        :return: 
+        """
         self.all_station = set()
 
         for journey in journeys:
@@ -178,6 +187,15 @@ class TrainNetwork(object):
         return station_name in self.journey
 
     def _find_available_paths(self, start_station, end_station, result, results):
+        """
+        This is recursive method is to find all the paths between any two stations
+        :param start_station: str
+        :param end_station: str
+        :param result: initial value of this recursive function, which is the reference pointing to the 
+        initial value [start_station]
+        :param results: reference to a list which stores the result
+        :return: 
+        """
         next_station = self._find_next_station(start_station)
         if not result or not next_station:
             return None
@@ -199,10 +217,12 @@ class TrainNetwork(object):
 
     def all_valid_journey(self, start_station, end_station):
         """
-        This method is to generate all the paths from start station to end station
-        :param start_station: 
-        :param end_station: 
-        :return: 
+        This method is to generate all the paths from any start station to any end station, which is the  
+        wrapper of self._find_available_paths method
+        
+        :param start_station: str
+        :param end_station: str
+        :return: list of paths
         """
         if start_station not in self.all_station or end_station not in self.all_station:
             raise InvalidStation
@@ -222,8 +242,8 @@ class TrainNetwork(object):
     def _time_table_from_route(self, route):
         """
         This method is to generate the timetable of the route
-        :param route: 
-        :return: 
+        :param route: list of station name, e.g ['A', 'B', 'E']
+        :return: timetable 
         """
         trip_time_table = []
         for index, start_stop in enumerate(route[:-1]):
@@ -235,6 +255,12 @@ class TrainNetwork(object):
         return trip_time_table
 
     def _earliest_departure_time(self, arrival_time, next_stop_timetable):
+        """
+        This method is to find the earliest departure time to the next city after the train arrives the current city
+        :param arrival_time: 
+        :param next_stop_timetable: 
+        :return: earliest departure time to the next city
+        """
         earliest_departure_time_ = None
         next_stop_departure_time = sort_time(list(next_stop_timetable.keys()))
         for departure_time in next_stop_departure_time:
@@ -247,6 +273,13 @@ class TrainNetwork(object):
 
     @time_span_decorator
     def _time_span(self, time_sequence, duration, arrival_time):
+        """
+        This method is to calculate the duration from the first city departure time to last city arrival time
+        :param time_sequence: list of time 
+        :param duration: list of duration between adjacent stops
+        :param arrival_time: arrival time of each city
+        :return: 
+        """
         accumulated_time = datetime.timedelta(hours=0, minutes=0)
         last_index = len(time_sequence) - 2
         for index, time in enumerate(time_sequence[:-1]):
@@ -275,9 +308,9 @@ class TrainNetwork(object):
 
     def _shortest_time_span(self, time_table, route):
         """
-        This method is re-organize time table into time sequence
+        This method is to calculate shortest journey length travelling from the first station of the journey to the last 
         :param time_table: 
-        :return: 
+        :return: shortest time
         """
         result = []
         total_routes = len(time_table)
@@ -300,6 +333,13 @@ class TrainNetwork(object):
         return min(time_consumed)
 
     def shortest_route(self, start_station, end_station):
+        """
+        This method is to find all the paths from start_station to end_station, and corresponding timetable from which 
+        shortest journey is found
+        :param start_station: str
+        :param end_station: str
+        :return: shortest path from start_station to end_station, duration of this path
+        """
         all_paths = self.all_valid_journey(start_station, end_station)
         journey_len = {}
         for route in all_paths:

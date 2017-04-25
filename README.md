@@ -91,12 +91,12 @@ Name                          Stmts   Miss Branch BrPart  Cover
 ---------------------------------------------------------------
 trainsimulator.py                 0      0      0      0   100%
 trainsimulator/exception.py      15      0      0      0   100%
-trainsimulator/model.py         217     13     94      9    91%
-trainsimulator/util.py           69      5     32      6    89%
+trainsimulator/model.py         212      2     90      8    97%
+trainsimulator/util.py           69      2     32      4    94%
 ---------------------------------------------------------------
-TOTAL                           301     18    126     15    91%
+TOTAL                           296      4    122     12    96%
 ----------------------------------------------------------------------
-Ran 56 tests in 0.257s
+Ran 56 tests in 0.241s
 
 OK
 ```
