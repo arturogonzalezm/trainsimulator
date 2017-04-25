@@ -1,6 +1,5 @@
 [![Build Status](https://travis-ci.org/arturosolutions/trainsimulator.svg?branch=master)](https://travis-ci.org/arturosolutions/trainsimulator)
 [![Coverage Status](https://coveralls.io/repos/github/arturosolutions/trainsimulator/badge.svg?branch=master)](https://coveralls.io/github/arturosolutions/trainsimulator?branch=master)
-
 # Train Simulation Python #
 
 > ### Requirements:
