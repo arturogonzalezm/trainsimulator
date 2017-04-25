@@ -2,7 +2,7 @@ import datetime
 from collections import defaultdict
 from trainsimulator.util import sort_time, verify_time_format, convert_to_datetime, convert_to_timedelta
 from trainsimulator.exception import (
-    InvalidTimeTable, InvalidNetwork, InvalidStation, NoTimetableAvailable, InvalidTimeFormat)
+    InvalidTimeTable, InvalidNetwork, InvalidStation, InvalidTimeFormat)
 
 
 def time_span_decorator(func):
