@@ -82,7 +82,9 @@ The quickest route is ABDE duration 18:0
 > ### Tests:
 
 * To see the results of the tests performed by Travis CI please refer to [test results](https://travis-ci.org/arturosolutions/trainsimulator)
-* Please refer to [coverage results](https://coveralls.io/github/arturosolutions/trainsimulator?branch=master) to see the code coverage
+
+* Please refer to [coverage results](https://coveralls.io/github/arturosolutions/trainsimulator?branch=master) to see the code coverage performed by coveralls
+
 * nosetests and coverage results:
 ```commandline
 Name                          Stmts   Miss Branch BrPart  Cover
@@ -99,6 +101,12 @@ Ran 67 tests in 0.396s
 OK
 ```
 * unittest results:
+
+![test_model](https://github.com/arturosolutions/trainsimulator/blob/master/docs/images/test_model.png)
+
+![test_util](https://github.com/arturosolutions/trainsimulator/blob/master/docs/images/test_util.png)
+
+* You can also run unittests with coverage and the results can be found inside docs/test_model and docs/test_util.
 
 ----
 
