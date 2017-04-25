@@ -98,7 +98,7 @@ Ran 67 tests in 0.396s
 
 OK
 ```
-* coverage results:
+* unittest results:
 
 ----
 

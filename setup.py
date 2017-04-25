@@ -21,7 +21,7 @@ with io.open(path.join(here, NAME, 'version.py'), 'rt', encoding='UTF-8') as f:
 setup(
     name=NAME,
     version=__version__,
-    packages=find_packages(exclude=['contrib', 'docs', 'tests*', 'examples*']),
+    packages=find_packages(exclude=['contrib', 'docs', 'tests*']),
     url=__url__,
     license=__license__,
     author=__author__,
