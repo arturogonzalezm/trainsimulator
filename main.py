@@ -22,7 +22,7 @@ def run():
             while not valid_input:
                 if type_of_input == 'departure_time':
                     print("Please provide departure time with format 'hour:minute' for route {}, "
-                          "separated by space, e.g 12:00, 15:32".format(route))
+                          "separated by space, e.g 12:00".format(route))
                 else:
                     print("Please provide length of this route with format 'hour:minute', only one duration only")
                 output = input('->')
