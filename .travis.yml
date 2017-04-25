@@ -13,7 +13,7 @@ install: "pip install -r requirements.txt"
 # command to run tests
 
 script:
-    - nosetests -v --with-coverage --cover-branches --cover-package=trainsimulation --cover-tests
+    - nosetests -v --with-coverage --cover-branches --cover-package=trainsimulator --cover-tests
 
 after_success:
   - coveralls
