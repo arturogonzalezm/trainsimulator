@@ -17,25 +17,32 @@
 > ### Technical Specs:
 
 - PyCharm or any editor/IDE that supports Python programming language
-- Python 3.3 onwards
-- The source code has been tested on MacOS and Linux
+- Developed in Python 3.6
+- The source code has been tested on MacOS and Linux and is compatible with 3.3 or later
+- TDD and unit testing unittest
+- Continuous Integration and testing Travis CI
+- Version control GitHub
+- Code coverage nosetests, coveralls, coverage
 
-Third party libraries:
+Third party libraries for testing purposes:
 
-- nose_parameterized 
-- coverage
+* nose_parameterized
+* coverage
+* coveralls
+* tox
 
 > ### Instructions:
 
-1. Open your Terminal/command line/command prompt and type:
+1. Go inside your root directory.
+2. Open your Terminal/command line/command prompt and type:
 ```commandline
-python ~/main.py
+python main.py
 ```
-2. Follow the instructions entering the values requested.
+3. Follow the instructions by entering the requested values.
 
 **Example:**
 
-Inputs:
+Inputs(can be one input 10:00 or several inputs separated by space 10:00 11:00):
 
 ```commandline
 Please provide departure time with format 'hour:minute' for route A-B, separated by space, e.g 12:00, 15:32
@@ -76,7 +83,7 @@ The quickest route is ABDE duration 18:0
 
 **Features:**
 
-- The Train network class is able to find all the possible combinations/routes between any two stations.
+- The Train Network class is able to find all the possible combinations/routes between any two stations.
 - It calculates the time between each station.
 - Duration is configurable.
 - Timetable is configurable.
@@ -90,3 +97,5 @@ The quickest route is ABDE duration 18:0
 * This program was written assuming the timetable is same everyday.
 * This project is primarily part of a coding assessment.
 * The command line is only using certain networks.
+* To see the results of the tests performed by Travis CI please refer to [test results](https://travis-ci.org/arturosolutions/trainsimulator)
+* Please refer to [coverage results](https://coveralls.io/github/arturosolutions/trainsimulator?branch=master) to see the code coverage
