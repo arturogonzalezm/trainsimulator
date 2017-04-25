@@ -29,7 +29,7 @@ Third party libraries:
 
 1. Open your Terminal/command line/command prompt and type:
 ```commandline
-python ~/.trainsimulation/examples/timetables_and_journey_lengths.py
+python ~/main.py
 ```
 2. Follow the instructions entering the values requested.
 
@@ -71,7 +71,6 @@ Output:
 The quickest route is ABDE duration 18:0
 0:00:00.014053
 ```
-
 
 ----
 

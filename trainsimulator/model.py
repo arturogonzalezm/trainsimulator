@@ -21,7 +21,7 @@ def time_span_decorator(func):
 
 class Journey(object):
     """
-    self._timetable is dictionary in the format of departure_time: [duration]
+    self._timetable is a dictionary in the format of departure_time: [duration]
     """
 
     def __init__(self, start_station, end_station):
@@ -159,22 +159,6 @@ class TrainNetwork(object):
         end_stations = [journey_instance.end_station for journey_instance in journey_instances]
         return end_stations
 
-    # def train_available(self, arrival_time, station_name):
-    #     """
-    #     This method is to check if there is a train available from 'station_name' by the arrival
-    #     :param arrival_time: datetime.datetime.stamp
-    #     :param station_name: str
-    #     :return: boolean
-    #     """
-    #     if not self._is_departure_station(station_name):
-    #         return
-    #     available_departure_time = \
-    #         [departure_time for departure_time in self._extract_journey_instance(station_name).departure_time
-    #          if self._arrival_time_before_departure_time(arrival_time, departure_time)]
-    #     return available_departure_time
-    #
-
-
     def _arrival_time_before_departure_time(self, arrival_time, departure_time):
         time_sequence = []
         for time_stamp in [arrival_time, departure_time]:
@@ -236,18 +220,6 @@ class TrainNetwork(object):
             if journey.end_station == end_station:
                 return journey.departure_arrival_time_table()
 
-    # def _earliest_departure_time(self, arrival_time, next_departure_stop):
-    #     if not self._is_departure_station(next_departure_stop):
-    #         return
-    #     next_stop_departure_time = self._extract_journey_instance(next_departure_stop).departure_time
-    #     available_departure_time = \
-    #         [departure_time for departure_time in next_stop_departure_time
-    #          if self._arrival_time_before_departure_time(arrival_time, departure_time)]
-    #     if not available_departure_time:
-    #         return earliest_time(next_stop_departure_time)
-    #     return earliest_time(available_departure_time)
-
-
     def available_journey(self, departure_time, start_stop, next_departure_stop):
         """
         This method is to generate all the combination between two stations
@@ -277,7 +249,7 @@ class TrainNetwork(object):
 
     def _time_table_from_route(self, route):
         """
-        This method is to generate timetable of the route
+        This method is to generate the timetable of the route
         :param route: 
         :return: 
         """

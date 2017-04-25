@@ -67,34 +67,6 @@ class TestTrainNetwork(unittest.TestCase):
             all_paths = train_network.all_valid_journey(start_station, end_station)
             self.assertCountEqual(all_paths, test_result)
 
-    # @parameterized.expand([
-    #     (
-    #             [
-    #                 {
-    #                     '07:00': '09:00', '07:50': '09:50', '09:35': '11:35', '11:00': '13:00',
-    #                 },
-    #                 {
-    #                     '06:15': '10:15', '07:15': '11:15', '08:30': '12:30', '10:30': '14:30', '11:00': '15:30'
-    #                 },
-    #                 {
-    #                     '06:15': '10:15', '07:15': '11:15', '08:30': '12:30', '10:30': '14:30',
-    #                 }
-    #             ],
-    #             '26:25'
-    #     ),
-    #     (
-    #         [
-    #             {'13:35': '21:42'},
-    #             {'09:00': '09:50', '10:00': '10:50', '11:00': '11:50'}
-    #         ],
-    #         '20:15'
-    #     ),
-    # ])
-    # def test__shortest_time_span(self, time_table, result):
-    #     train_network = TrainNetwork()
-    #     test_result = train_network._shortest_time_span(time_table)
-    #     self.assertCountEqual(test_result, result)
-
     @parameterized.expand([
         ('1:04', '11:00', True),
         (datetime.datetime.strptime('13:05', '%H:%M'), datetime.datetime.strptime('15:05', '%H:%M'), True),
@@ -105,21 +77,6 @@ class TestTrainNetwork(unittest.TestCase):
         trainnetwork = TrainNetwork()
         test_result = trainnetwork._arrival_time_before_departure_time(arrival_time, departure_time)
         self.assertEqual(test_result, result)
-
-    # @parameterized.expand([
-    #     (['1:04', '8:00', '23:00'],
-    #      ['8:00', '9:00', '10:00', '10:30', '11:30', '12:30', '12:55', '13:30', '15:30', '18:30', '23:00'],
-    #      ['08:00', '09:00', '08:00']
-    #      ),
-    # ])
-    # def test_earliest_departure_time(self, arrival_time, next_departure_time_table, result):
-    #     trainnetwork = TrainNetwork()
-    #     nodes = [('B', 'D', {'departure_time': next_departure_time_table, 'duration': '01:34'}), ('A', 'B', None)]
-    #     trainnetwork.build_network_from_nodes(nodes)
-    #     for index, arrival_time_each in enumerate(arrival_time):
-    #         test_result = trainnetwork._earliest_departure_time(arrival_time_each, 'B')
-    #         self.assertEqual(test_result, datetime.datetime.strptime(result[index], '%H:%M'))
-
 
     def test_departure_arrival_time_table(self):
         A_B = ['8:00', '9:00', '10:00', '10:30', '11:30', '12:30', '12:55', '13:30', '15:30', '18:30', '23:00']
@@ -143,17 +100,6 @@ class TestTrainNetwork(unittest.TestCase):
             ('23:06', '01:11')
         ]
         self.assertEqual(time_table, A_C_departure_arrival_timetable)
-
-    # @parameterized.expand([
-    #     (['19:23', '00:00', '23:50', '9:00'],
-    #      {'9:00': '11:00', '10:00': '12:00', '15:00': '17:00', '18:00': '20:00', '23:50': '1:50', '00:30': '1:50'},
-    #      ['23:50', '00:30', '00:30', '10:00'])
-    # ])
-    # def test_earlist_departure_time(self, arrival_time_list, departure_timetable, results):
-    #     trainnetwork = TrainNetwork()
-    #     for index, arrival_time in enumerate(arrival_time_list):
-    #         test_result = trainnetwork._earliest_departure_time(arrival_time, departure_timetable)
-    #         self.assertEqual(test_result, results[index])
 
     @parameterized.expand([
         (

@@ -5,8 +5,6 @@ from trainsimulator.constants import ROUTES
 from trainsimulator.util import verify_departure_time, verify_duration
 from trainsimulator.model import Journey, TrainNetwork
 
-sys.path.append(os.path.join(os.path.dirname(__file__), '/trainsimulator/'))
-
 
 def run():
     print('*' * 10 + 'Initialising Train Network' + '*' * 10)
