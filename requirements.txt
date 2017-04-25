@@ -1,2 +1,4 @@
 nose_parameterized
 coverage
+coveralls
+tox

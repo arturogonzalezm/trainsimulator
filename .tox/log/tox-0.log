@@ -1,0 +1,47 @@
+actionid: tox
+msg: packaging
+cmdargs: ['/Users/arturogonzalez/anaconda/bin/python3.6', local('/Users/arturogonzalez/dev/trainsimulator/setup.py'), 'sdist', '--formats=zip', '--dist-dir', local('/Users/arturogonzalez/dev/trainsimulator/.tox/dist')]
+env: None
+
+Can't import pypandoc - using README.md without converting to RST
+running sdist
+running egg_info
+writing trainsimulator.egg-info/PKG-INFO
+writing dependency_links to trainsimulator.egg-info/dependency_links.txt
+writing top-level names to trainsimulator.egg-info/top_level.txt
+reading manifest file 'trainsimulator.egg-info/SOURCES.txt'
+writing manifest file 'trainsimulator.egg-info/SOURCES.txt'
+warning: sdist: standard file not found: should have one of README, README.rst, README.txt
+
+running check
+creating trainsimulator-0.0.1
+creating trainsimulator-0.0.1/trainsimulator
+creating trainsimulator-0.0.1/trainsimulator.egg-info
+copying files to trainsimulator-0.0.1...
+copying setup.py -> trainsimulator-0.0.1
+copying trainsimulator/__init__.py -> trainsimulator-0.0.1/trainsimulator
+copying trainsimulator/constants.py -> trainsimulator-0.0.1/trainsimulator
+copying trainsimulator/exception.py -> trainsimulator-0.0.1/trainsimulator
+copying trainsimulator/model.py -> trainsimulator-0.0.1/trainsimulator
+copying trainsimulator/util.py -> trainsimulator-0.0.1/trainsimulator
+copying trainsimulator/version.py -> trainsimulator-0.0.1/trainsimulator
+copying trainsimulator.egg-info/PKG-INFO -> trainsimulator-0.0.1/trainsimulator.egg-info
+copying trainsimulator.egg-info/SOURCES.txt -> trainsimulator-0.0.1/trainsimulator.egg-info
+copying trainsimulator.egg-info/dependency_links.txt -> trainsimulator-0.0.1/trainsimulator.egg-info
+copying trainsimulator.egg-info/top_level.txt -> trainsimulator-0.0.1/trainsimulator.egg-info
+Writing trainsimulator-0.0.1/setup.cfg
+creating '.tox/dist/trainsimulator-0.0.1.zip' and adding 'trainsimulator-0.0.1' to it
+adding 'trainsimulator-0.0.1/PKG-INFO'
+adding 'trainsimulator-0.0.1/setup.cfg'
+adding 'trainsimulator-0.0.1/setup.py'
+adding 'trainsimulator-0.0.1/trainsimulator/__init__.py'
+adding 'trainsimulator-0.0.1/trainsimulator/constants.py'
+adding 'trainsimulator-0.0.1/trainsimulator/exception.py'
+adding 'trainsimulator-0.0.1/trainsimulator/model.py'
+adding 'trainsimulator-0.0.1/trainsimulator/util.py'
+adding 'trainsimulator-0.0.1/trainsimulator/version.py'
+adding 'trainsimulator-0.0.1/trainsimulator.egg-info/dependency_links.txt'
+adding 'trainsimulator-0.0.1/trainsimulator.egg-info/PKG-INFO'
+adding 'trainsimulator-0.0.1/trainsimulator.egg-info/SOURCES.txt'
+adding 'trainsimulator-0.0.1/trainsimulator.egg-info/top_level.txt'
+removing 'trainsimulator-0.0.1' (and everything under it)
