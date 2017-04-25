@@ -79,6 +79,27 @@ The quickest route is ABDE duration 18:0
 0:00:00.014053
 ```
 
+> ### Tests:
+
+* To see the results of the tests performed by Travis CI please refer to [test results](https://travis-ci.org/arturosolutions/trainsimulator)
+* Please refer to [coverage results](https://coveralls.io/github/arturosolutions/trainsimulator?branch=master) to see the code coverage
+* nosetests and coverage results:
+```commandline
+Name                          Stmts   Miss Branch BrPart  Cover
+---------------------------------------------------------------
+trainsimulator.py                 0      0      0      0   100%
+trainsimulator/exception.py      15      0      0      0   100%
+trainsimulator/model.py         234     31    100     14    84%
+trainsimulator/util.py           94      9     44      6    89%
+---------------------------------------------------------------
+TOTAL                           343     40    144     20    86%
+----------------------------------------------------------------------
+Ran 67 tests in 0.396s
+
+OK
+```
+* coverage results:
+
 ----
 
 **Features:**
@@ -97,5 +118,3 @@ The quickest route is ABDE duration 18:0
 * This program was written assuming the timetable is same everyday.
 * This project is primarily part of a coding assessment.
 * The command line is only using certain networks.
-* To see the results of the tests performed by Travis CI please refer to [test results](https://travis-ci.org/arturosolutions/trainsimulator)
-* Please refer to [coverage results](https://coveralls.io/github/arturosolutions/trainsimulator?branch=master) to see the code coverage

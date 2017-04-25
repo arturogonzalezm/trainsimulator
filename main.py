@@ -1,5 +1,3 @@
-import os
-import sys
 import datetime
 from trainsimulator.constants import ROUTES
 from trainsimulator.util import verify_departure_time, verify_duration
