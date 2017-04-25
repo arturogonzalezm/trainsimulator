@@ -18,7 +18,7 @@
 
 - PyCharm or any editor/IDE that supports Python programming language
 - Developed in Python 3.6
-- The source code has been tested on MacOS and Linux and is compatible with 3.3 or later
+- The source code has been tested on MacOS and Linux and is compatible with Python 3.3 or later
 - TDD and unit testing unittest
 - Continuous Integration and testing Travis CI
 - Version control GitHub
