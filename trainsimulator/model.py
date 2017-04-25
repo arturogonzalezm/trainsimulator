@@ -107,7 +107,7 @@ class Journey(object):
 class TrainNetwork(object):
     def __init__(self):
         """
-        This class defines train network, and has the methods to find all the paths, time table, shortest journey
+        This class defines the train network, and it has the methods to find all the paths, time table, shortest journey
         from one station to another, 
         self.journey is the list of dictionary with format {'start_station': [journey_instances]}
         """
@@ -126,7 +126,7 @@ class TrainNetwork(object):
 
     def build_network_from_nodes(self, nodes):
         """
-        This method is to build network from nodes with format (start_station, end_station, time_table)
+        This method builds the network from a node/nodes with the format start_station, end_station, time_table
         
         :param nodes: list of tuples
         :return: 
@@ -149,7 +149,7 @@ class TrainNetwork(object):
 
     def build_network_from_journey(self, journeys):
         """
-        This method is to build network from a list of Journey instance
+        This method builds the network from a list of Journey instance
         :param journeys: list of Journey instances
         :return: 
         """
