@@ -2,3 +2,4 @@ nose_parameterized
 coverage
 coveralls
 tox
+tox-travis
