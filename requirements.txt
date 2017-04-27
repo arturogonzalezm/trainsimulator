@@ -1,4 +1,4 @@
-nose_parameterized
+nose-parameterized
 coverage
 coveralls
 tox

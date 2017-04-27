@@ -25,10 +25,11 @@
 
 Third party libraries for testing purposes:
 
-* nose_parameterized
+* nose-parameterized
 * coverage
 * coveralls
 * tox
+* tox-travis
 
 > ### Instructions:
 
@@ -110,6 +111,21 @@ OK
 > ### Overview:
 
 ![diagram](https://github.com/arturosolutions/trainsimulator/blob/master/docs/images/diagram.png)
+
+> ### UML:
+
+![oneuml](https://github.com/arturosolutions/trainsimulator/blob/master/docs/uml/packages_trainsimulator.png)
+
+![twouml](https://github.com/arturosolutions/trainsimulator/blob/master/docs/uml/classes_trainsimulator.png)
+
+![threeuml](https://github.com/arturosolutions/trainsimulator/blob/master/docs/uml/packages_tests.png)
+
+![fouruml](https://github.com/arturosolutions/trainsimulator/blob/master/docs/uml/classes_tests.png)
+
+![fiveeuml](https://github.com/arturosolutions/trainsimulator/blob/master/docs/uml/classes_Model.png)
+
+![sixuml](https://github.com/arturosolutions/trainsimulator/blob/master/docs/uml/classes_Exception.png)
+
 
 ----
 
