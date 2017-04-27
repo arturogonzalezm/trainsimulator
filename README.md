@@ -121,13 +121,13 @@ Classes_trainsimulator:
 ![twouml](https://github.com/arturosolutions/trainsimulator/blob/master/docs/uml/classes_trainsimulator.png)
 
 
-![threeuml](https://github.com/arturosolutions/trainsimulator/blob/master/docs/uml/packages_tests.png "Packages_tests:")
+| Packages_tests: | ![threeuml](https://github.com/arturosolutions/trainsimulator/blob/master/docs/uml/packages_tests.png)
 
 Classes_tests:
 ![fouruml](https://github.com/arturosolutions/trainsimulator/blob/master/docs/uml/classes_tests.png)
 
 
-![fiveeuml](https://github.com/arturosolutions/trainsimulator/blob/master/docs/uml/classes_Model.png "Classes_model:")
+| Classes_model: | ![fiveeuml](https://github.com/arturosolutions/trainsimulator/blob/master/docs/uml/classes_Model.png)
 
 Classes_exception:
 ![sixuml](https://github.com/arturosolutions/trainsimulator/blob/master/docs/uml/classes_Exception.png)
